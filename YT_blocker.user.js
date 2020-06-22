@@ -15,12 +15,19 @@
 // https://www.tampermonkey.net/documentation.php
 
 let lastRun = 0;
+let currentHour = new Date().getHours();
+let isBlocked = currentHour > 6 && currentHour < 22;
 
 setInterval(function() {
     let timeDif = new Date().getTime() - lastRun;
     if (timeDif > 5000) {
 
+
         let url = window.location.href;
+	 if (isBlocked) {
+	    window.location.href="https://hckrnews.com/";
+	    lastRun = new Date().getTime();
+        } else
         if (url.match(/youtube.com\/$/gi)) {
             var link = document.URL.replace(/youtube.com\/$/gi, "youtube.com/feed/subscriptions");
             window.location.href=link;
