@@ -14,6 +14,7 @@
 // https://simply-how.com/enhance-and-fine-tune-any-web-page-the-complete-user-scripts-guide
 // https://www.tampermonkey.net/documentation.php
 
+let alternativeUrl = "https://l.linklyhq.com/l/5sDG";
 let lastRun = 0;
 let currentHour = new Date().getHours();
 let isBlocked = currentHour > 6 && currentHour < 13;
@@ -25,7 +26,7 @@ setInterval(function() {
 
         let url = window.location.href;
 	 if (isBlocked) {
-	    window.location.href="https://hckrnews.com/";
+	    window.location.href=alternativeUrl;
 	    lastRun = new Date().getTime();
         } else
         if (url.match(/youtube.com\/$/gi)) {
