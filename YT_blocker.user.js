@@ -16,7 +16,7 @@
 
 let lastRun = 0;
 let currentHour = new Date().getHours();
-let isBlocked = currentHour > 6 && currentHour < 22;
+let isBlocked = currentHour > 6 && currentHour < 13;
 
 setInterval(function() {
     let timeDif = new Date().getTime() - lastRun;
