@@ -23,14 +23,14 @@ setInterval(function() {
     let timeDif = new Date().getTime() - lastRun;
     if (timeDif > 5000) {
 
-
         let url = window.location.href;
-	 if (isBlocked) {
-	    window.location.href=alternativeUrl;
-	    lastRun = new Date().getTime();
-        } else
+        var link = "";
         if (url.match(/youtube.com\/$/gi)) {
-            var link = document.URL.replace(/youtube.com\/$/gi, "youtube.com/feed/subscriptions");
+            if (isBlocked) {
+                link = "https://l.linklyhq.com/l/5sDG";
+            } else {
+                link = document.URL.replace(/youtube.com\/$/gi, "youtube.com/feed/subscriptions");
+            }
             window.location.href=link;
             lastRun = new Date().getTime();
         }
