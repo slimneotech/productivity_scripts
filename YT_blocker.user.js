@@ -3,21 +3,19 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.11
 // @description  only see subscriptions.
-// @author       Peter J.
+// @author       Erik S.
 // @match        https://www.youtube.com/*
 // @grant        none
 // @require      https://code.jquery.com/jquery-3.4.1.min.js
 // @run-at       document-start
 // ==/UserScript==
-
-
 // https://simply-how.com/enhance-and-fine-tune-any-web-page-the-complete-user-scripts-guide
 // https://www.tampermonkey.net/documentation.php
 
 let alternativeUrl = "https://l.linklyhq.com/l/5sDG";
 let lastRun = 0;
 let currentHour = new Date().getHours();
-let isBlocked = currentHour > 6 && currentHour < 13;
+let isBlocked = currentHour > 6 && currentHour < 16;
 
 setInterval(function() {
     let timeDif = new Date().getTime() - lastRun;
@@ -54,4 +52,5 @@ setInterval(function rem_elements() {
 
     del_element('#sections .ytd-guide-renderer:nth-child(1) .ytd-guide-section-renderer:nth-child(1) paper-item');
     del_element('#items a[title="Home"]');
+    del_element('a[title="Shorts"]');
 }, 500);
