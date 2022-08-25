@@ -1,0 +1,16 @@
+# data project
+pandas
+numpy
+
+# database
+#psycopg2-binary
+
+# debugging
+#pyperclip
+
+# jupyter related
+jupyter
+ipykernel
+jupyter_ascending
+jupyterthemes
+dtale
