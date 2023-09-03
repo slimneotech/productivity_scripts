@@ -5,7 +5,7 @@
 // @description  only see subscriptions.
 // @author       Erik S.
 // @match        https://www.youtube.com/*
-// @grant        none
+// @grant        GM_addStyle
 // @require      https://code.jquery.com/jquery-3.4.1.min.js
 // @run-at       document-start
 // ==/UserScript==
@@ -54,3 +54,14 @@ setInterval(function rem_elements() {
     del_element('#items a[title="Home"]');
     del_element('a[title="Shorts"]');
 }, 500);
+
+setInterval(function rem_elements() {
+    let url = window.location.href;
+    if (url.match(/youtube.com\/feed\/subscriptions/gi)) {
+        GM_addStyle('body { filter: grayscale(1); }');
+        console.log("grayscale(1)");
+    } else {
+        GM_addStyle('body { filter: grayscale(0); }');
+        console.log("grayscale(0)");
+    }
+}, 4000);
